@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis</title>
+</head>
+<body>
+    <h1>Kuis</h1>
+    <label for="">Nama</label><br>
+    <input type="text" id="nama"><br>
+    <label for="">No Absen</label><br>
+    <input type="number" id="absen"><br>
+    <label for="">Nilai :</label><div id="nilai"></div>
+    <hr>
+    <h4>I. Pilihan Ganda</h4>
+    <!-- soal nomer 1 -->
+    <label for="">1. Warna Bendera Indonesia adalah ...</label><br>
+    <input type="radio" name="no1"> Merah Ijo <br>
+    <input type="radio" name="no1"> Kuning Biru <br>
+    <input type="radio" name="no1" id="jno1"> Merah Putih <br>
+    <input type="radio" name="no1"> Putih Hitam <br>
+    <div id="rno1"></div>
+
+    <!-- soal nomer 2 -->
+    <label for="">2. Siapa Presiden Pertama Indonesia ...</label><br>
+    <input type="radio" name="no2"> Suharto <br>
+    <input type="radio" name="no2" id="jno2"> Sukarno <br>
+    <input type="radio" name="no2"> Jokowi <br>
+    <input type="radio" name="no2"> Megawati <br>
+    <div id="rno2"></div>
+
+    <h4>II. Jawaban Singkat</h4>
+    <label for="">1. Jakarta ada di pulau ...</label>
+    <br>
+    Jawab : <input type="text" id="sno1">
+    <div id="rsno1"></div>
+
+    <hr>
+    <button onclick="Kirim()">Kirim</button>
+
+    <script>
+        function Kirim(){
+            const jno1 = document.querySelector('#jno1')
+            const jno2 = document.querySelector('#jno2')
+            const sno1 = document.querySelector('#sno1')
+
+            const rno1 = document.querySelector('#rno1')
+            const rno2 = document.querySelector('#rno2')
+            const rsno1 = document.querySelector('#rsno1')
+            const nilai = document.querySelector('#nilai')
+
+            let response
+            let poin = 0
+            if(jno1.checked){
+                response = 'Jawaban Kamu Benar'
+                rno1.style = 'color: green;'
+                poin = poin+10
+            }else{
+                response = 'Jawaban Kamu Salah'
+                rno1.style = 'color: red;'
+            }
+            rno1.innerHTML = response
+
+            if(jno2.checked){
+                response = 'Jawaban Kamu Benar'
+                rno2.style = 'color: green;'
+                poin = poin+10
+            }else{
+                response = 'Jawaban Kamu Salah'
+                rno2.style = 'color: red;'
+            }
+            rno2.innerHTML = response
+
+            if(sno1.value == 'jawa'){
+                response = 'Jawaban Kamu Benar'
+                rsno1.style = "color: green;"
+                poin = poin+20
+            }else{
+                response = 'Jawaban Kamu Salah'
+                rsno1.style = "color: red;"
+            }
+            rsno1.innerHTML = response  
+
+            nilai.innerHTML = poin
+        }
+    </script>
+</body>
+</html> 
